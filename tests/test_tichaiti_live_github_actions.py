@@ -9,4 +9,4 @@ class TestMwenAn(unittest.TestCase):
 
     def test_non(self):
         non = koman_ou_rele()
-        self.assertEqual(non, 'tichaiti')
+        self.assertEqual(non, 'tichaiti!')
