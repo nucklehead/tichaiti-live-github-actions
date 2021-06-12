@@ -1,0 +1,29 @@
+name: pull-request
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  teste:
+    name: Teste sa pou mwen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (rale kod mwen)
+        uses: actions/checkout@v2
+
+      - name: Enstale python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Enstale poestry
+        uses: knowsuchagency/poetry-install@v1
+        env:
+          POETRY_VIRTUALENVS_CREATE: false
+
+      - name: Enstale depandans
+        run: poetry install -v
+
+      - name: Ekzekite tès
+        run: poetry run nose2 -v
